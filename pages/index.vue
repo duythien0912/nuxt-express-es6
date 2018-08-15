@@ -17,12 +17,22 @@
 {{{{/raw}}}}
 
 <script>
-// import axios from '~/plugins/axios'
-
+import axios from '~/plugins/axios'
 export default {
-  async asyncData () {
-    // let { data } = await axios.get('/api/users')
-    return { }
+  async asyncData ({ error }) {
+    const dataaxios = await axios
+      .get('/api/users')
+      .catch(e => {
+        console.log(e)
+        error({
+          statusCode: 404,
+          message: 'Post not found'
+        })
+      })
+    console.log(dataaxios)
+    return {
+      users: dataaxios ? dataaxios.data : []
+    }
   },
   head () {
     return {
@@ -33,18 +43,15 @@ export default {
 </script>
 
 <style scoped>
-.title
-{
+.title {
   margin: 30px 0;
 }
-.users
-{
+.users {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.user
-{
+.user {
   margin: 10px 0;
 }
 </style>

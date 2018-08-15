@@ -1,6 +1,5 @@
-import express from 'express'
-
 import users from './routes/users'
+import express from 'express'
 
 // Create express instnace
 const app = express()
@@ -11,7 +10,7 @@ const app = express()
 app.use(users)
 
 // Export the server middleware
-export default {
+module.exports = {
   path: '/api',
   handler: app
 }

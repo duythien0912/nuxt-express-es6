@@ -9,7 +9,7 @@ module.exports = {
       {
         name: 'viewport',
         content:
-     'width=device-width, initial-scale=1'
+          'width=device-width, initial-scale=1'
       },
       {
         hid: 'description',
@@ -51,6 +51,6 @@ module.exports = {
   },
   serverMiddleware: [
     // API middleware
-    '~/api/index.mjs'
+    '~/api/index.js'
   ]
 }
